@@ -1,4 +1,4 @@
-package edu.gatech.seclass.textprocessor;
+package textprocessor;
 
 import java.io.*;
 import java.nio.file.Files;

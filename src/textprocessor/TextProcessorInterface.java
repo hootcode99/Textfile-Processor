@@ -1,10 +1,4 @@
-package edu.gatech.seclass.textprocessor;
-
-/**
-  * Interface created for use in Georgia Tech CS6300.
-  *
-  * IMPORTANT: This interface should NOT be altered in any way.
-  */
+package textprocessor;
 
 public interface TextProcessorInterface {
     /**

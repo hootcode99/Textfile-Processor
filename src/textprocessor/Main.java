@@ -1,4 +1,4 @@
-package edu.gatech.seclass.textprocessor;
+package textprocessor;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -187,10 +187,10 @@ public class Main {
                 String suffix = actionsMap.get("suffix");
 
                 //  catch error if parameters are missing entirely
-//                if (suffix.equals(inputFileName)) {
-//                    usage();
-//                    return;
-//                }
+                // if (suffix.equals(inputFileName)) {
+                //    usage();
+                //     return;
+                //  }
 
                 // check if suffix is an empty string
                 if (suffix.equals("")) {
@@ -264,20 +264,23 @@ public class Main {
             String arg = iter.next();
             switch (arg) {
                 case "-o":
-                    // if the flag has not been set
+                    // if the flag has not been set, set the flag
                     if (!actionsMap.get("o").equals("present")) {
-                        // set the flag
+
                         actionsMap.put("o", "present");
                     }
-                    // remove the item from the arguments list
+                    /* 
+                    remove the item from the arguments list
+                    capture the filename as the next element
+                    add the filename to the hashmap
+                    remove the filename from the arguments list
+                    break the switch statement
+                    */
+
                     iter.remove();
-                    // capture the filename as the next element
-                    String filename = iter.next();
-                    // add the filename to the hashmap
+                    String filename = iter.next(); 
                     actionsMap.put("filename", filename);
-                    // remove the filename from the arguments list
                     iter.remove();
-                    // break the switch statement
                     break;
 
                 case "-i":
@@ -286,83 +289,92 @@ public class Main {
                     break;
 
                 case "-r":
-                    // if the flag has not been set
+                    // if the flag has not been set, set the flag
                     if (!actionsMap.get("r").equals("present")) {
-                        // set the flag
                         actionsMap.put("r", "present");
                     }
 
-                    // remove the item from the arguments list
+                    /* 
+                    remove the item from the arguments list
+                    capture the new string as the next element
+                    add the old string to the hashmap
+                    remove the old string from the arguments list
+
+                    capture the new string as the next element
+                    add the new string to the hashmap
+                    remove the new string from the arguments list
+                    break the switch statement
+                    */
+
                     iter.remove();
-                    // capture the new string as the next element
                     String oldString = iter.next();
-                    // add the old string to the hashmap
                     actionsMap.put("oldString", oldString);
-                    // remove the old string from the arguments list
                     iter.remove();
 
-                    // capture the new string as the next element
                     String newString = iter.next();
-                    // add the new string to the hashmap
                     actionsMap.put("newString", newString);
-                    // remove the new string from the arguments list
                     iter.remove();
-
-                    // break the switch statement
                     break;
 
                 case "-k":
-                    // if the flag has not been set
+                    // if the flag has not been set, set the flag
                     if (!actionsMap.get("k").equals("present")) {
-                        // set the flag
                         actionsMap.put("k", "present");
                     }
 
-                    // remove the item from the arguments list
+                    /*
+                    remove the item from the arguments list
+                    capture the substring as the next element
+                    add the substring to the hashmap
+                    remove the substring from the arguments list
+                    break the switch statement
+                    */
+
                     iter.remove();
-                    // capture the substring as the next element
                     String substring = iter.next();
-                    // add the substring to the hashmap
                     actionsMap.put("substring", substring);
-                    // remove the substring from the arguments list
                     iter.remove();
-                    // break the switch statement
+
                     break;
 
                 case "-s":
-                    // if the flag has not been set
+                    // if the flag has not been set, set the flag
                     if (!actionsMap.get("s").equals("present")) {
-                        // set the flag
                         actionsMap.put("s", "present");
                     }
 
-                    // remove the item from the arguments list
+                    /* 
+                    remove the item from the arguments list
+                    capture the suffix as the next element
+                    add the padding to the hashmap
+                    remove the padding from the arguments list
+                    break the switch statement
+                    */
+
                     iter.remove();
-                    // capture the suffix as the next element
                     String suffix = iter.next();
-                    // add the padding to the hashmap
                     actionsMap.put("suffix", suffix);
-                    // remove the padding from the arguments list
                     iter.remove();
-                    // break the switch statement
                     break;
 
                 case "-n":
-                    // if the flag has not been set
+                    // if the flag has not been set, set the flag
                     if (!actionsMap.get("n").equals("present")) {
-                        // set the flag
                         actionsMap.put("n", "present");
                     }
 
-                    // remove the item from the arguments list
+                    /*  
+                    remove the item from the arguments list
+                    capture the padding as the next element
+                    add the padding to the hashmap
+                    remove the padding from the arguments list
+                    break the switch statement
+                    */
+
                     iter.remove();
-                    // capture the padding as the next element
                     String padding = iter.next();
-                    // add the padding to the hashmap
-                    actionsMap.put("padding", padding);
-                    // remove the padding from the arguments list
-                    iter.remove();
-                    // break the switch statement
+                    actionsMap.put("padding", padding);                
+                    iter.remove();                    
                     break;
 
                 case "-w":
